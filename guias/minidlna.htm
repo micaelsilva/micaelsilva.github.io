@@ -1,7 +1,40 @@
 <html>
-<head>
-<title>Instalando minidlna no MacOS via Homebrew</title>
-</head>
-<body>
+	<head>
+		<title>Instalando minidlna no MacOS via Homebrew</title>
+	</head>
+	<body>
+		<h1>Instalando minidlna no MacOS via Homebrew</h1>
+		<p>Primeiro acesse o Terminal do MacOS. Uma forma rápida de chegar até lá é usando a opção Command+Espaço para usar o Spotlight, e digitar 'terminal' e enter</p>
+		<p><img src="minidlna_1.png" /></p>
+		<p>Na sequência instale o Homebrew, que pode ser feito através de uma única linha, que pode ser vista abaixo ou direto no site <a href="https://brew.sh">brew.sh</a></p>
+		<p>
+			<pre>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</pre>
+		</p>
+		<p>O processo vai gerar bastante texto, pedir a sua senha de usuário do Mac e até instalar um extra chamado Command Line Tools. Tudo isso é esperado.</p>
+		<p><img src="minidlna_2.png" /></p>
+		<p>Assim que concluído você usará o comando</p>
+		<p>
+			<pre>brew install minidlna</pre>
+		</p>
+		<p>para invocar a instalação do minidlna. Ele vai causar a instalação de varias dependências (softwares externos que ele depende para fazer outras tarefas) e isso pode demorar mais ou menos dependendo do seu computador. Paciência.</p>
+		<p><img src="minidlna_3.png" /></p>
+		<p>Assim que ver esta mensagem é sinal que a instalação terminou com sucesso:</p>
+		<p><img src="minidlna_4.png" /></p>
+		<p>Ela indica como se procede daqui em diante para configurar, mas replico aqui abaixo e explico o que cada uma faz:</p>
+		<p>
+			<pre>mkdir -p ~/.config/minidlna
+cp /usr/local/opt/minidlna/share/minidlna/minidlna.conf ~/.config/minidlna/minidlna.conf
+ln -s ~/Movies ~/.config/minidlna/media
+brew services start minidlna</pre>
+		</p>
+		<p>A primeira linha cria a pasta onde vai ficar a configuração do minidlna, dentro da sua pasta de usuário. O ~ (til) em sistemas como Linux e MacOS significa a pasta do usuário, o que serve de um atalho pra nao ter que escreve-la especificamente. Você pode não ver essa pasta posteriormente também porque tudo que começa com . (ponto final) nesses sistemas fica automaticamente oculto.
+
+		A segunda linha copia um modelo de configuração já pronto direto da instalação do minidlna para facilitar, que já aponta lá dentro para uma possivel pasta de mídias.
+
+		Aí na terceira linha o sistema cria um link entre uma pasta que exista (no caso ~/Movies seria a pasta de filmes na sua pasta de usuário, independente do idioma do sistema) e cria um atalho lá
+
+		A última linha faz o Homebrew iniciar o minidlna como um serviço (programa que roda em segundo plano no sistema) e faz com que ele inicie toda vez que o computador ligar.</p>
+		<p>Se tudo der certo voce já pode abrir a TV na seção feita para ver dispositivos DLNA ou em apps como o VLC para iOS que estará aparecendo Mac DLNA Server</p>
+		<p><img src="minidlna_5.jpg" /></p>
 </body>
 </html>
