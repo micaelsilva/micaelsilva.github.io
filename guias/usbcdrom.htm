@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>Transformando um pendrive USB em CD-ROM virtual</title>
+	</head>
+	<body>
+		<h1>Transformando um pendrive USB em CD-ROM virtual</h1>
+
+		<p>Ter um dispositivo que se identifique como CD/DVD-ROM para o sistema pode ter varias utilidades desde garantir que os dados de um pendrive nao sejam alterados por um vírus até para dar boot em computadores que não permitem boot por um pendrive como "mass storage" normal (o que inclui muitos Macs). Dispositivos como modems 4G USB se usam muito desse recurso para guardar drivers, por isso mesmo muitos controladores USB suportam esse modo, e muitos acabam sendo usados por pendrives</p>
+		<p><img src="usbcdrom_1.jpg" /></p>
+		<p>(O modelo usado por mim é um Datatraveller da Kingston modelo DT101 G2)</p>
+		<p>Primeiro é preciso saber qual o chipset usado no pendrive em questão. Pra isso você pode usar o programa <a href="https://www.antspec.com/usbflashinfo/index.php">usbflashinfo</a>. A página é em russo mas o programa funciona em inglês.
+		<p><img src="usbcdrom_2.png" /></p>
+		<p>O programa indicar que este pendrive usa chip da Philson, talvez um dos melhores para fazer esse processo dada a simplicidade. Só usar o programa <a href="https://www.usbdev.ru/files/phison/psmodeconverter/">Phison ModeConverter</a> é suficiente para alterar o modo de funcionamento do controlador e colocar uma ISO dentro dele.</p>
+		<p><img src="usbcdrom_3.png" /></p>
+		<p>Outros controladores podem ser usados para o mesmo procedimento, mas para esses casos é bom olhar o site do <a href="https://www.usbdev.ru/articles/luncdrom/">USBDEV.ru</a> que mantém uma extensa documentação de vários outros fabricantes. É em russo, mas é compreensível através de Google Tradutor ou semelhantes.</p>
+</body>
+</html>
